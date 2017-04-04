@@ -1,0 +1,13 @@
+Database Requirements;
+
+
+Instruments
+- name
+- posted_by*
+- comments**
+- rating
+- reviews**
+- date_created
+- category**
+- number_of_likes
+
