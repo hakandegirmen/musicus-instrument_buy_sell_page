@@ -1,3 +1,4 @@
 from django.contrib import admin
+from .models import User, Category, Instrument, Like, Comment
 
-# Register your models here.
+admin.site.register({Category, Instrument, Like, Comment})
