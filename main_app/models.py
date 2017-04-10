@@ -67,7 +67,7 @@ class Comment(models.Model):
     #foreign keys
     user = models.ForeignKey(User)
     instrument = models.ForeignKey(Instrument, on_delete=models.CASCADE)
-    ref_self = models.ForeignKey('self')
+    ref_self = models.ForeignKey('self', blank=True, null=True)
 
     #properties
     content = models.TextField(blank=True, null=True)
@@ -79,4 +79,4 @@ class Comment(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.name
+        return str(self.id)
