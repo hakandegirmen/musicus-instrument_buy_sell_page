@@ -4,6 +4,16 @@ from django.db import models
 from datetime import datetime
 from address.models import AddressField
 
+
+class UserProfile(models.Model):
+    user   = models.OneToOneField(User)
+    avatar = models.ImageField()
+
+
+
+    def __str__(self):
+        return self.user.username+"'s profile picture"
+
 class Category(models.Model):
     
     #properties

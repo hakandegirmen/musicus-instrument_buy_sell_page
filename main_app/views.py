@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import User, Category, Instrument, Like, Comment
+from .models import User, Category, Instrument, Like, Comment, UserProfile
 from .forms import InstrumentForm, LoginForm, CreateAccountForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -12,8 +12,14 @@ def index(request):
   
 def detail(request, instrument_id):
     instrument = get_object_or_404(Instrument, id=instrument_id)
-    comments = Comment.objects.filter(instrument = instrument)
-    return render(request, 'detail.html', {'instrument': instrument, 'comments': comments})
+    comments= Comment.objects.all()
+    userProfiles = UserProfile.objects.all()
+
+    return render(request, 'detail.html', {
+        'instrument': instrument,
+        'comments': comments,
+        'userProfiles': userProfiles
+    })
   
 def post_instrument(request):
 
